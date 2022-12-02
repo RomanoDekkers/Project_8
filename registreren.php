@@ -1,6 +1,34 @@
 <?php
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
+
+    if(isset($_POST['Registreer'])){
+        if($_SERVER["REQUEST_METHOD"] == "POST"){      
+                // Variables linked with form
+                $Voornaam = $_POST['Voornaam'];
+                $Achternaam = $_POST['Achternaam'];
+                $Mail = $_POST['Mail'];
+                $Adres = $_POST['Adres'];
+                $Telefoon_Nummer = $_POST['Telefoonnummer'];
+                $Wachtwoord = ($_POST['Wachtwoord']);
+
+                $sql = "INSERT INTO `gebruikers`(`Voornaam`, `Achternaam`, `E-mail`, `Adres`, `Telefoonnummer`, `Wachtwoord`, `Rechten`)
+                VALUES ('$Voornaam', '$Achternaam','$Mail', '$Adres', '$Telefoon_Nummer', '$Wachtwoord', '1')";
+             
+             $qry = $conn -> query($sql);
+             if($qry)
+             {
+                echo "<script type='text/javascript'> window.location.href='index.php'</script>";
+             }
+             else
+             {
+                echo "Er ging iets fout!<BR>";
+                echo "Error Description: ", $conn -> error;
+             }
+          }
+       }
+       $conn -> close();
+
 ?>
 
 <script>
@@ -23,7 +51,7 @@
 </head>
 <body>
     <div class="container">
-        <form class="" method="POST">
+        <form class="" method="POST" action="registreren.php" autocomplete="off">
             <table>
                 <tr>
                     <td>Naam: </td>
@@ -46,6 +74,9 @@
                     <td>Wachtwoord: </td>
                     <td><input class="transparent-input" id="ZichtbaarWW" type="password" placeholder="Wachtwoord" name="Wachtwoord" required></td>
                     <td><input type="checkbox" onclick="myFunction()">Laat Wachtwoord zien</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" class="btn knop fw-bold" id="btnSubmit" value="Registreer" name="Registreer"></td>
                 </tr>
             </table>
         </form>

@@ -1,1 +1,1 @@
-<php  include './sjabloon/indeling.php'; ?>
+<?php  include './sjabloon/indeling.php'; ?>

@@ -11,7 +11,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
              $naam = $_POST['naam'];
              $Wachtwoord = $_POST['Wachtwoord'];
              $Wachtwoord = md5($Wachtwoord);
-             $naam = md5($naam);
              //query checkt of de gegevens ingevult overeen komen met die van de database
              $query = "SELECT * FROM gebruikers where Voornaam='$naam' AND  Wachtwoord='$Wachtwoord'";
              $result = $conn->query($query);

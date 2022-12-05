@@ -11,6 +11,7 @@
                 $Adres = $_POST['Adres'];
                 $Telefoon_Nummer = $_POST['Telefoonnummer'];
                 $Wachtwoord = ($_POST['Wachtwoord']);
+                $Wachtwoord = md5($Wachtwoord);
 
                 $sql = "INSERT INTO `gebruikers`(`Voornaam`, `Achternaam`, `E-mail`, `Adres`, `Telefoonnummer`, `Wachtwoord`, `Rechten`)
                 VALUES ('$Voornaam', '$Achternaam','$Mail', '$Adres', '$Telefoon_Nummer', '$Wachtwoord', '1')";

@@ -51,36 +51,38 @@
     <title>Registreren</title>
 </head>
 <body>
-    <div class="container">
-        <form class="" method="POST" action="registreren.php" autocomplete="off">
-            <table>
-                <tr>
-                    <td>Naam: </td>
-                    <td><input class="transparent-input" type="text" placeholder="Voornaam" name="Voornaam" required></td>
-                    <td><input class="transparent-input" type="text" placeholder="Achternaam" name="Achternaam" required></td>
-                </tr>
-                <tr>
-                    <td>E-mail: </td>
-                    <td><input class="transparent-input" type="text" placeholder="E-mail" name="Mail" required></td>
-                </tr>
-                <tr>
-                    <td>Adres: </td>
-                    <td><input class="transparent-input" type="text" placeholder="Adres" name="Adres" required></td>
-                </tr>
-                <tr>
-                    <td>Telefoonnummer: </td>
-                    <td><input class="transparent-input" type="text" placeholder="Telefoonnummer" name="Telefoonnummer" required></td>
-                </tr>
-                <tr>
-                    <td>Wachtwoord: </td>
-                    <td><input class="transparent-input" id="ZichtbaarWW" type="password" placeholder="Wachtwoord" name="Wachtwoord" required></td>
-                    <td><input type="checkbox" onclick="myFunction()">Laat Wachtwoord zien</td>
-                </tr>
-                <tr>
-                    <td><input type="submit" class="btn knop fw-bold" id="btnSubmit" value="Registreer" name="Registreer"></td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<div class="container">
+    <form name="Registreren" style="margin: auto; width: 400px;" method="POST" action="registreren.php" autocomplete="off">
+        <div class="mb-3">
+            <label for="VoorbeeldVoornaam1" class="form-label">Voornaam</label>
+            <input type="Text" name="Voornaam" class="form-control" aria-describedby="VoornaamHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="VoorbeeldAchternaam1" class="form-label">Achternaam</label>
+            <input type="Text" name="Achternaam" class="form-control" aria-describedby="AchternaamHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="VoorbeeldEmail1" class="form-label">E-mail</label>
+            <input type="Mail" name="Mail" class="form-control" aria-describedby="EmailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="VoorbeeldAdres1" class="form-label">Adres</label>
+            <input type="text" name="Adres" class="form-control" aria-describedby="AdresHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="VoorbeeldTelefoon1" class="form-label">Telefoonnummer</label>
+            <input type="phone" name="Telefoonnummer" class="form-control" aria-describedby="TelefoonHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="VoorbeeldWachtwoord1" class="form-label">Wachtwoord</label>
+            <input type="password" class="form-control" id="ZichtbaarWW" name="Wachtwoord" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleWachtwoordZien1" onclick="myFunction()">
+            <label class="form-check-label">Bekijk wachtwoord</label>
+        </div>
+            <button type="submit" name="Registreer" class="btn btn-primary">Registreer</button>
+    </form>
+</div>
 </body>
 </html>

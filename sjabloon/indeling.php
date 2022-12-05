@@ -30,7 +30,7 @@ if(isset($_POST)){
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+          <li><a href="index.php" class="nav-link px-2 link-secondary">Home</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
@@ -52,9 +52,7 @@ if(isset($_POST)){
             <li><hr class="dropdown-divider"></li>
             <li>
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Uitloggen</button>
-          
 			</li>
-            
           </ul>
           <?php  } else{ ?>
           <div class="dropdown text-end">

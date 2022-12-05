@@ -46,9 +46,7 @@ if(isset($_POST)){
           <?php  echo $_SESSION["Voornaam"]; ?>
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="login.php">login</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="accountbeheer.php">account</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Uitloggen</button>

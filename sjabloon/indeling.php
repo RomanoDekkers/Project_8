@@ -50,9 +50,10 @@ if(isset($_POST)){
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><form method='post'>
-            <input type="submit" class="btn btn knop" id="btnSubmit" value="Logout" name="LogoutConfirm" onclick="return confirm('Wilt u uitloggen?')">
-			</form></li>
+            <li>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Uitloggen</button>
+          
+			</li>
             
           </ul>
           <?php  } else{ ?>
@@ -61,10 +62,25 @@ if(isset($_POST)){
           klik om in te loggen
           </a>
           <?php } ?>
-          
         </div>
       </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Weet je zeker dat je wilt uitloggen</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nee</button>
+        <form method='post'>
+        <input type="submit" class="btn btn-success" id="btnSubmit" value="Ja" name="LogoutConfirm">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
   </header>
 </body>
 </html>

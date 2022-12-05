@@ -25,16 +25,21 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 <html lang="en">
 <body>
 <div class="table_div d-flex justify-content-center"> 
-    <form method=POST action="login.php?aktie=login">
+    <form method=POST action="login.php?aktie=login" class="row g-3">
         <br/>
-            <input type=text id="naam" placeholder="voornaam" name="naam" class="knop">
+            <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Voornaam</label>
+            <input type="text" class="form-control" id="validationDefault01"  name="naam"  required>
+            </div>
 
-            <br/>
-            <input type=password placeholder="wachtwoord" name="Wachtwoord" class="knop">
-            </table>
-            <input type="submit" name="submit" class="knop" value="login">
+            <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Voornaam</label>
+            <input type="password" class="form-control" id="validationDefault01"  name="Wachtwoord"  required>
+            </div>
+            <div class="col-5">
+            <input class="btn btn-success" type="submit" name="submit" value="login">
+            </div>
             <p>Geen account? <a href="register.php" class="text-decoration-none">registreer hier</a></p>
-        <br/>
     </form>
 </div>
 </body>

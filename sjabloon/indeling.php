@@ -40,10 +40,12 @@ if(isset($_POST)){
 
         
         <?php 
+        //hier word gecheckt of de gebruiker is ingelogd zo ja dan zie hij een andere nav bar iedereen ziet een navbar want alle geintreseerde moeten dit kunnen zien
 	if (isset($_SESSION["ingelogd"])){ ?>
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php  echo $_SESSION["Voornaam"]; ?>
+          <?php //gebruikers naam word weergegeven
+           echo $_SESSION["Voornaam"]; ?>
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="accountbeheer.php">account</a></li>
@@ -52,7 +54,7 @@ if(isset($_POST)){
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Uitloggen</button>
 			</li>
           </ul>
-          <?php  } else{ ?>
+          <?php  } else{  ?>
           <div class="dropdown text-end">
           <a href="login.php" class="d-block link-dark text-decoration-none" >
           klik om in te loggen

@@ -33,9 +33,17 @@ if(isset($_POST)){
         <img src="logo.jpg" alt="logo" width="50" height="50">
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-left mb-md-0">
-          <li><a href="index.php" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="index.php" class="nav-link px-2 link-dark">Home</a></li>
           <li><a href="Wedstrijd.php" class="nav-link px-2 link-dark">Wedstrijd</a></li>
+          <?php if (isset($_SESSION["ingelogd"])){ 
+            if ($_SESSION["Rechten"] == "3" || $_SESSION["Rechten"] == ""){?>
           <li><a href="Ledenlijst.php" class="nav-link px-2 link-dark">Ledenlijst</a></li>
+          <?php } }?>
+          <?php if (isset($_SESSION["ingelogd"])){ 
+            if ( $_SESSION["Rechten"] == ""){?>
+          <li><a href="Admin.php" class="nav-link px-2 link-dark">Admin</a></li>
+          <?php } }?>
+          <li><a href="contact.php" class="nav-link px-2 link-dark">Contact</a></li>
         </ul>
 
         

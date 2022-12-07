@@ -20,8 +20,10 @@ function login()
                 $Adres = $row["Adres"];
                 $Wachtwoord = $row["Wachtwoord"];
                 $Telefoonnummer = $row["Telefoonnummer"];
+                $Rechten = $row["Rechten"];
                 //vervolgens word een sessie gemaakt met de naam van de gebruiker
-                $_SESSION["ID"]= $ID;       
+                $_SESSION["ID"]= $ID;      
+                $_SESSION["Rechten"]= $Rechten;     
                 $_SESSION["Voornaam"]= $Voornaam;
                 $_SESSION["Achternaam"]= $Achternaam;
                 $_SESSION["E-mail"]= $Email;

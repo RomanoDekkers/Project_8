@@ -18,7 +18,7 @@
     <form action="" method="post" enctype="text/plain">
         <div class="mb-3">
             <label  class="form-label">Uw email address</label>
-            <input type="email" class="form-control" placeholder="jou email" name="email">
+            <input type="email" class="form-control" placeholder="Jouw email" name="email">
         </div>
         <div class="mb-3">
             <label class="form-label" >Onderwerp</label>

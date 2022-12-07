@@ -35,7 +35,10 @@ if(isset($_POST)){
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-left mb-md-0">
           <li><a href="index.php" class="nav-link px-2 link-dark">Home</a></li>
           <li><a href="Wedstrijd.php" class="nav-link px-2 link-dark">Wedstrijd</a></li>
+          <?php if (isset($_SESSION["ingelogd"])){ 
+            if ($_SESSION["Rechten"] == "3" || $_SESSION["Rechten"] == ""){?>
           <li><a href="Ledenlijst.php" class="nav-link px-2 link-dark">Ledenlijst</a></li>
+          <?php } }?>
         </ul>
 
         

@@ -39,6 +39,7 @@ if(isset($_POST)){
             if ($_SESSION["Rechten"] == "3" || $_SESSION["Rechten"] == ""){?>
           <li><a href="Ledenlijst.php" class="nav-link px-2 link-dark">Ledenlijst</a></li>
           <?php } }?>
+          <li><a href="contact.php" class="nav-link px-2 link-dark">contact</a></li>
         </ul>
 
         

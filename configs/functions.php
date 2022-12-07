@@ -37,4 +37,79 @@ function login()
         }
 }
 }
+function admintable(){
+        include './connectie/conn.php';
+        $admin = "";
+        $query = "SELECT * FROM gebruikers ";
+        $result = $conn->query($query);
+        echo"<table class='table'>
+        <thead class='thead-light'>
+          <tr>";
+        echo"  <th scope='col'>ID</th>";
+        echo" <th scope='col'>Voornaam</th>";
+        echo" <th scope='col'>Achternaam</th>";
+        echo" <th scope='col'>E-mail</th>";
+        echo" <th scope='col'>Adres</th>";
+        echo" <th scope='col'>Wachtwoord</th>";
+        echo" <th scope='col'>Telefoonnummer</th>";
+        echo" <th scope='col'>Rechten</th>";
+        echo" <th scope='col'>Wijzig</th>";
+        echo" <th scope='col'>Verwijderen</th></tr>";
+        echo" </thead>
+        <tbody>";
+        if ($result->num_rows > 0) 
+        {
+            //while loop loopt door de resultaten heen en maakt rows            
+            while($row = $result->fetch_assoc()) {
+                    $ID = $row["ID"];
+                    $Voornaam = $row["Voornaam"];
+                    $Achternaam = $row["Achternaam"];
+                    $Email = $row["E-mail"];
+                    $Adres = $row["Adres"];
+                    $Wachtwoord = $row["Wachtwoord"];
+                    $Telefoonnummer = $row["Telefoonnummer"];
+                    $Rechten = $row["Rechten"];
+        echo"  <tr>
+        <th scope='row'>". $ID . "</th>";
+        echo" <td>". $Voornaam . "</td>";
+        echo" <td>". $Achternaam . "</td>";
+        echo" <td>". $Email . "</td>";
+        echo" <td>". $Adres . "</td>";
+        echo" <td>". $Wachtwoord . "</td>";
+        echo" <td>". $Telefoonnummer . "</td><form action='" .$_SERVER['PHP_SELF']." ?aktie=update' method=POST name='formulier'>";
+        echo" <td><select class='form-select' name='rol'>";
+        switch ($Rechten){
+            case $admin:
+            echo "<option value='". $admin . "' selected>". $admin . "</option>";
+            echo "<option value='1'>1</option>";
+            echo "<option value='2'>2</option>";
+            echo "<option value='3'>3</option>";
+            break;
+            case 1:
+            echo "<option value='". $admin . "'>". $admin . "</option>";
+            echo "<option value='1' selected>1</option>";
+            echo "<option value='2'>2</option>";
+            echo "<option value='3'>3</option>";
+            break;
+            case 2:
+            echo "<option value='". $admin . "'>". $admin . "</option>";
+            echo "<option value='1'>1</option>";
+            echo "<option value='2' selected>2</option>";
+            echo "<option value='3'>3</option>";
+            break;
+            case 3:
+            echo "<option value='". $admin . "'>". $admin . "</option>";
+            echo "<option value='1'>1</option>";
+            echo "<option value='2'>2</option>";
+            echo "<option value='3' selected>3</option>";
+            break;
+            }
+        echo"</select></td>";
+        echo" <td><input type='hidden' value='". $ID . "' name='ID'> <input type=submit class='btn btn-warning' name='update' value='Wijzig'></td></form>";
+        echo" <td><form action='" .$_SERVER['PHP_SELF']." ?aktie=delete' method=POST name='formulier'><input type='hidden' value='". $ID . "' name='ID'><input type=submit class='btn btn-danger' name='delete'value='Verwijder' ></td></form></tr>";
+                }
+        }
+        echo" </tbody>";
+        echo" </table>";
+        }
 ?>

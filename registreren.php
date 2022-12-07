@@ -1,10 +1,12 @@
 <?php
+    // include layout en databse connectie
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
 
+    // als je op registreren drukt wordt deze functie uitgevoer. Het zet alle ingevulde data in de database zodat de gebruiker kan inloggen
     if(isset($_POST['Registreer'])){
         if($_SERVER["REQUEST_METHOD"] == "POST"){      
-                // Variables linked with form
+                // variabelen gelinkt aan het formulier
                 $Voornaam = $_POST['Voornaam'];
                 $Achternaam = $_POST['Achternaam'];
                 $Mail = $_POST['Mail'];
@@ -13,6 +15,7 @@
                 $Wachtwoord = ($_POST['Wachtwoord']);
                 $Wachtwoord = md5($Wachtwoord);
 
+                // database query
                 $sql = "INSERT INTO `gebruikers`(`Voornaam`, `Achternaam`, `E-mail`, `Adres`, `Telefoonnummer`, `Wachtwoord`, `Rechten`)
                 VALUES ('$Voornaam', '$Achternaam','$Mail', '$Adres', '$Telefoon_Nummer', '$Wachtwoord', '1')";
              
@@ -33,6 +36,7 @@
 ?>
 
 <script>
+    // functie die ervoor zorgt dat de klant zijn/haar ingevulde wachtwoord kan laten weergeven als puntjes of de ingevulde tekst
     function myFunction() {
     var x = document.getElementById("ZichtbaarWW");
         if (x.type == "password") {
@@ -51,6 +55,7 @@
     <title>Registreren</title>
 </head>
 <body>
+<!--Formulier om te registreren-->
     <div class="container">
         <form name="Registreren" style="margin: auto; width: 400px;" method="POST" action="registreren.php" autocomplete="off">
             <div class="mb-3">

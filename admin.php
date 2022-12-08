@@ -3,7 +3,9 @@
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
     include './configs/functions.php';
+    //hier is een functie die de tabel met knopjes maakt 
     admintable();
+    //als de delete knop ingedrukt word word hij verwijderd
     if(isset($_GET['aktie'])){
         if($_GET['aktie'] == "delete") {
             if(isset($_POST['delete']))
@@ -16,6 +18,7 @@
             }
         }
     }
+     //als de delete knop ingedrukt word word hij verwijderd
     if(isset($_GET['aktie'])){
         if($_GET['aktie'] == "update") {
             if(isset($_POST['update']))

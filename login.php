@@ -3,7 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
     include './configs/functions.php';
- //checkt of de knop in het form is gedrukt
+ //checkt of de knop in het form is gedrukt zo ja word de login functie gestard
  if(isset($_GET['aktie']))
  {
      if($_GET['aktie'] == "login"){
@@ -14,6 +14,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
              }
              else
              {
+                //als er verkeerde gegevens worden ingevult komt er een melding
                  echo "<div class='alert alert-danger' role='alert'>
                  Gegevens zijn incorrect!
                </div>

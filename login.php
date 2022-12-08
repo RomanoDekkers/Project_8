@@ -39,7 +39,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
             <div class="col-5">
             <input class="btn btn-success" type="submit" name="submit" value="login">
             </div>
-            <p>Geen account? <a href="register.php" class="text-decoration-none">registreer hier</a></p>
+            <p>Geen account? <a href="registreren.php" class="text-decoration-none">registreer hier</a></p>
     </form>
 </div>
 </body>

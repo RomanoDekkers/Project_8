@@ -40,6 +40,7 @@ function login()
 function admintable(){
         include './connectie/conn.php';
         $admin = "";
+        // alles word geselecteerd van gebruikers en vervolgens in een tabel gezet
         $query = "SELECT * FROM gebruikers ";
         $result = $conn->query($query);
         echo"<table class='table'>
@@ -59,7 +60,7 @@ function admintable(){
         <tbody>";
         if ($result->num_rows > 0) 
         {
-            //while loop loopt door de resultaten heen en maakt rows            
+            //while loop loopt door de resultaten heen en plaatst ze in de tabel        
             while($row = $result->fetch_assoc()) {
                     $ID = $row["ID"];
                     $Voornaam = $row["Voornaam"];
@@ -77,6 +78,7 @@ function admintable(){
         echo" <td>". $Adres . "</td>";
         echo" <td>". $Wachtwoord . "</td>";
         echo" <td>". $Telefoonnummer . "</td><form action='" .$_SERVER['PHP_SELF']." ?aktie=update' method=POST name='formulier'>";
+       //hier zie je een selecter in een switch die laat zien welke waarde er al is volgens de database en dan andere keuzes beschikbaar stelt
         echo" <td><select class='form-select' name='rol'>";
         switch ($Rechten){
             case $admin:
@@ -105,6 +107,7 @@ function admintable(){
             break;
             }
         echo"</select></td>";
+        //hier zie je een bewerk en delete knop die gebruik maakt van een hidden input om de waarde van de zojuist geselecteerde rij op te slaan
         echo" <td><input type='hidden' value='". $ID . "' name='ID'> <input type=submit class='btn btn-warning' name='update' value='Wijzig'></td></form>";
         echo" <td><form action='" .$_SERVER['PHP_SELF']." ?aktie=delete' method=POST name='formulier'><input type='hidden' value='". $ID . "' name='ID'><input type=submit class='btn btn-danger' name='delete'value='Verwijder' ></td></form></tr>";
                 }

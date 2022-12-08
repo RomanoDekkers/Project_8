@@ -98,22 +98,28 @@
         <form action="accountbeheer.php" method="POST">
             <div class="row">
                 <div class="col">
+                    <label for="VoorbeeldAchternaam1" class="form-label">Voornaam</label>
                     <input type="text" name="BewerkVoornaam" class="form-control" value="<?php echo $_SESSION['Voornaam']; ?>">
                 </div>
                 <div class="col">
+                    <label for="VoorbeeldAchternaam1" class="form-label">Achternaam</label>
                     <input type="text" name="BewerkAchternaam" class="form-control" value="<?php echo $_SESSION['Achternaam']; ?>">
                 </div>
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">E-mail</label>
                     <input type="text" name="BewerkE-mail" class="form-control" value="<?php echo $_SESSION['E-mail']; ?>">
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Adres</label>
                     <input type="text" name="BewerkAdres" class="form-control" value="<?php echo $_SESSION['Adres']; ?>">
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Telefoonnummer</label>
                     <input type="text" name="BewerkTelefoonnummer" class="form-control" value="<?php echo $_SESSION['Telefoonnummer']; ?>">
             </div> <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Wachtwoord</label>
                     <input type="password" name="BewerkWachtwoord" class="form-control" value="">
             </div>  <br />
                 <div>
@@ -130,22 +136,28 @@ else { ?>
         <form action="accountbeheer.php" method="POST">
             <div class="row">
                 <div class="col">
+                    <label for="VoorbeeldAchternaam1" class="form-label">Voornaam</label>
                     <input type="text" name="Voornaam" class="form-control" value="<?php echo $_SESSION['Voornaam']; ?>" disabled>
                 </div>
                 <div class="col">
+                    <label for="VoorbeeldAchternaam1" class="form-label">Achternaam</label>
                     <input type="text" name="Achternaam" class="form-control" value="<?php echo $_SESSION['Achternaam']; ?>" disabled>
                 </div>
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">E-mail</label>
                     <input type="text" name="E-mail" class="form-control" value="<?php echo $_SESSION['E-mail']; ?>" disabled>
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Adres</label>
                     <input type="text" name="Adres" class="form-control" value="<?php echo $_SESSION['Adres']; ?>" disabled>
             </div>  <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Telefoonnummer</label>
                     <input type="text" name="Telefoonnummer" class="form-control" value="<?php echo $_SESSION['Telefoonnummer']; ?>" disabled>
             </div> <br />
                 <div>
+                    <label for="VoorbeeldAchternaam1" class="form-label">Wachtwoord</label>
                     <input type="password" name="Wachtwoord" class="form-control" value="<?php echo md5($_SESSION['Wachtwoord']); ?>" disabled>
             </div>  <br />
                 <div>

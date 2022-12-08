@@ -33,14 +33,30 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
             </div>
 
             <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Voornaam</label>
-            <input type="password" class="form-control" id="validationDefault01"  name="Wachtwoord"  required>
+            <label for="validationDefault01" class="form-label">Wachtwoord</label>
+            <input type="password" class="form-control" id="ZichtbaarWW" name="Wachtwoord"  required>
+            </div>
+            <div class="col-md-4 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleWachtwoordZien1" onclick="myFunction()">
+                <label class="form-check-label">Bekijk wachtwoord</label>
             </div>
             <div class="col-5">
-            <input class="btn btn-success" type="submit" name="submit" value="login">
+            <input class="btn btn-primary" type="submit" name="submit" value="login">
             </div>
             <p>Geen account? <a href="registreren.php" class="text-decoration-none">registreer hier</a></p>
     </form>
 </div>
 </body>
 </html>
+<script>
+    // functie die ervoor zorgt dat de klant zijn/haar ingevulde wachtwoord kan laten weergeven als puntjes of de ingevulde tekst 
+    //shout out naar Romano voor deze epic code
+    function myFunction() {
+    var x = document.getElementById("ZichtbaarWW");
+        if (x.type == "password") {
+            x.type = "text";
+        } else {
+                x.type = "password";
+            }
+    }
+</script>

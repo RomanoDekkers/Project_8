@@ -22,7 +22,7 @@
              $qry = $conn -> query($sql);
              if($qry)
              {
-                echo "<script type='text/javascript'> window.location.href='index.php'</script>";
+                echo "<script type='text/javascript'> window.location.href='login.php'</script>";
              }
              else
              {
@@ -80,7 +80,7 @@
             </div>
             <div class="mb-3">
                 <label for="VoorbeeldWachtwoord1" class="form-label">Wachtwoord</label>
-                <input type="password" class="form-control" id="ZichtbaarWW" name="Wachtwoord" required>
+                <input type="password"  class="form-control" id="ZichtbaarWW" name="Wachtwoord" required>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleWachtwoordZien1" onclick="myFunction()">

@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-   
     <style>
-        .table, th, td{
-            border: 1px solid;
-        }
         .container{
             width: 600px;
             margin: 0 auto;
+            border-width:1px;
+            border: 1px solid;    
         }
- 
+
+        table, th, td {
+  border: 1px solid;
+}
     </style>
     <script>
         $(document).ready(function(){
@@ -23,9 +24,10 @@
 <body>
     <div class="container">
             <div class="row">
+                <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
-                        <h2 class="titel tekst">Gespeelde wedstrijden</h2>
-                        <a href="create.php" class="createknop"> wedstrijd toevoegen</a>
+                        <h2 class="pull-left">Wedstrijd gegevens</h2>
+                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Nieuwe stand toevoegen</a>
                     </div>
                     <?php
                     // Include config file
@@ -35,10 +37,10 @@
                     $sql = "SELECT * FROM wedstrijden";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            echo '<table class="tabelwedstrijden">';
+                            echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>Wedstrijd nummer</th>";
+                                        echo "<th>ID</th>";
                                         echo "<th>Speler 1</th>";
                                         echo "<th>Speler 2</th>";
                                         echo "<th>Stand</th>";
@@ -55,11 +57,8 @@
                                         echo "<td>" . $row['Stand'] . "</td>";
                                         echo "<td>" . $row['Datum'] . "</td>";
                                         echo "<td>" . $row['Winnaar'] . "</td>";
-                                        
-                                            
-                                           // echo '<a href="update.php?ID='. $row['ID'] ;
-                                           // echo '<a href="delete.php?ID='. $row['ID'];
-                                        echo "</td>";
+
+                                       
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
@@ -67,15 +66,16 @@
                             // Free result set
                             mysqli_free_result($result);
                         } else{
-                            echo '<div class="geengevens"><em>No records were found.</em></div>';
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                         }
                     } else{
-                        echo "iets gaat er fout, probeer het later opnieuw";
+                        echo "Oops! Something went wrong. Please try again later.";
                     }
  
                     // Close connection
                     mysqli_close($link);
                     ?>
+                </div>
             </div>        
     </div>
 </body>

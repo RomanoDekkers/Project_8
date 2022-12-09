@@ -3,7 +3,6 @@
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
     include './configs/functions.php';
-
     ?>
 
 <html lang="en">
@@ -31,7 +30,7 @@
           </div>';
         }
         ?>
-        <a href="add_new.php" class="btn btn-primary mb-3">voeg toe</a>
+        <!--<a href="add_new.php" class="btn btn-primary mb-3">voeg toe</a>
 
      <!--table holder-->
 <table class="table table-hover text-center">
@@ -65,7 +64,20 @@
     </tr>
         <?php
     }
+
+    $id = isset($_GET['ID']) ? $_GET['ID'] : '';
+    $sql = "DELETE FROM `gebruikers` WHERE 'ID' = $id";
+    $result = mysqli_query($conn, $sql);
+
+      if($result){
+    header("Location: Ledenlijst.php?msg=Record deleted successfully");
+      }
+
+    else {
+    echo "Failed: " . mysqli_error($conn);
+    }
     ?>
+
     
   </tbody>
 </table>

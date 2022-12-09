@@ -65,6 +65,7 @@ Je kunt sterren sparen door veel te schaken, puzzels op te lossen en toernooien 
 Alvast heel veel plezier!
 
 </p>
+<a href="FIDE-Regels voor het Schaakspel 1-1-2018.pdf" class="btn btn-primary">de spel regels</a>
   </div>
 </div>
 </div>

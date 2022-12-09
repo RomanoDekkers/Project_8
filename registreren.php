@@ -1,10 +1,12 @@
 <?php
+    // include layout en databse connectie
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
 
+    // als je op registreren drukt wordt deze functie uitgevoer. Het zet alle ingevulde data in de database zodat de gebruiker kan inloggen
     if(isset($_POST['Registreer'])){
         if($_SERVER["REQUEST_METHOD"] == "POST"){      
-                // Variables linked with form
+                // variabelen gelinkt aan het formulier
                 $Voornaam = $_POST['Voornaam'];
                 $Achternaam = $_POST['Achternaam'];
                 $Mail = $_POST['Mail'];
@@ -13,13 +15,14 @@
                 $Wachtwoord = ($_POST['Wachtwoord']);
                 $Wachtwoord = md5($Wachtwoord);
 
+                // database query
                 $sql = "INSERT INTO `gebruikers`(`Voornaam`, `Achternaam`, `E-mail`, `Adres`, `Telefoonnummer`, `Wachtwoord`, `Rechten`)
                 VALUES ('$Voornaam', '$Achternaam','$Mail', '$Adres', '$Telefoon_Nummer', '$Wachtwoord', '1')";
              
              $qry = $conn -> query($sql);
              if($qry)
              {
-                echo "<script type='text/javascript'> window.location.href='index.php'</script>";
+                echo "<script type='text/javascript'> window.location.href='login.php'</script>";
              }
              else
              {
@@ -33,6 +36,7 @@
 ?>
 
 <script>
+    // functie die ervoor zorgt dat de klant zijn/haar ingevulde wachtwoord kan laten weergeven als puntjes of de ingevulde tekst
     function myFunction() {
     var x = document.getElementById("ZichtbaarWW");
         if (x.type == "password") {
@@ -51,6 +55,7 @@
     <title>Registreren</title>
 </head>
 <body>
+<!--Formulier om te registreren-->
     <div class="container">
         <form name="Registreren" style="margin: auto; width: 400px;" method="POST" action="registreren.php" autocomplete="off">
             <div class="mb-3">
@@ -75,7 +80,7 @@
             </div>
             <div class="mb-3">
                 <label for="VoorbeeldWachtwoord1" class="form-label">Wachtwoord</label>
-                <input type="password" class="form-control" id="ZichtbaarWW" name="Wachtwoord" required>
+                <input type="password"  class="form-control" id="ZichtbaarWW" name="Wachtwoord" required>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleWachtwoordZien1" onclick="myFunction()">

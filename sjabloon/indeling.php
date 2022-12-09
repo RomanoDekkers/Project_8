@@ -33,17 +33,27 @@ if(isset($_POST)){
         <img src="logo.jpg" alt="logo" width="50" height="50">
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-left mb-md-0">
-          <li><a href="index.php" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="index.php" class="nav-link px-2 link-dark">Home</a></li>
           <li><a href="Wedstrijd.php" class="nav-link px-2 link-dark">Wedstrijd</a></li>
+          <?php if (isset($_SESSION["ingelogd"])){ 
+            if ($_SESSION["Rechten"] == "3" || $_SESSION["Rechten"] == ""){?>
           <li><a href="Ledenlijst.php" class="nav-link px-2 link-dark">Ledenlijst</a></li>
+          <?php } }?>
+          <?php if (isset($_SESSION["ingelogd"])){ 
+            if ( $_SESSION["Rechten"] == ""){?>
+          <li><a href="Admin.php" class="nav-link px-2 link-dark">Admin</a></li>
+          <?php } }?>
+          <li><a href="contact.php" class="nav-link px-2 link-dark">Contact</a></li>
         </ul>
 
         
         <?php 
+        //hier word gecheckt of de gebruiker is ingelogd zo ja dan zie hij een andere nav bar iedereen ziet een navbar want alle geintreseerde moeten dit kunnen zien
 	if (isset($_SESSION["ingelogd"])){ ?>
         <div class="dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php  echo $_SESSION["Voornaam"]; ?>
+          <?php //gebruikers naam word weergegeven
+           echo $_SESSION["Voornaam"]; ?>
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="accountbeheer.php">account</a></li>
@@ -52,7 +62,7 @@ if(isset($_POST)){
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Uitloggen</button>
 			</li>
           </ul>
-          <?php  } else{ ?>
+          <?php  } else{  ?>
           <div class="dropdown text-end">
           <a href="login.php" class="d-block link-dark text-decoration-none" >
           klik om in te loggen

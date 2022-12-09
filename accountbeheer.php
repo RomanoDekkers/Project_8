@@ -162,12 +162,29 @@ else { ?>
             </div>  <br />
                 <div>
                 <input type="submit" class="btn btn-warning" id="btnSubmit" value="Bewerk account" name="BewerkAccount">
-                <input type="submit" class="btn btn-danger" id="btnSubmit" value="Verwijder account" name="AccountVerwijderen" onclick="return confirm('Wilt u definitief uw account verwijderen?')">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@getbootstrap">Account verwijderen</button>
                 <input type="submit" class="btn btn-info" id="btnSubmit" value="Uitloggen" name="UitlogBevestiging">
                 </div>
             </div>
         </form>
     </div>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Weet je zeker dat je je account wilt verwijderen?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nee</button>
+        <form method='post'>
+        <input type="submit" class="btn btn-success" id="btnSubmit" value="Ja" name="AccountVerwijderen">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <?php } ?>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php 
+include './connectie/conn.php';
 function login()
-{
-    include './connectie/conn.php';
+{include './connectie/conn.php';
     $naam = $_POST['naam'];
     $Wachtwoord = $_POST['Wachtwoord'];
     $Wachtwoord = md5($Wachtwoord);    
@@ -37,8 +37,7 @@ function login()
         }
 }
 }
-function admintable(){
-        include './connectie/conn.php';
+function admintable(){include './connectie/conn.php';
         $admin = "";
         // alles word geselecteerd van gebruikers en vervolgens in een tabel gezet
         $query = "SELECT * FROM gebruikers ";

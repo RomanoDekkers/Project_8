@@ -5,6 +5,11 @@
     include './configs/functions.php';
     //hier is een functie die de tabel met knopjes maakt 
     admintable();
+    if (!isset($_SESSION["ingelogd"])){ 
+        if ( $_SESSION["Rechten"] != ""){
+            header("location: index.php");
+        }
+    }
     //als de delete knop ingedrukt word word hij verwijderd
     if(isset($_GET['aktie'])){
         if($_GET['aktie'] == "delete") {

@@ -7,6 +7,9 @@
     include './connectie/conn.php';
     include './configs/functions.php';
 
+    if (empty($_SESSION["ingelogd"])){
+        header("Location: login.php");
+    }
     // account verwijderen functie. als er op de delete account knop gedrukt wordt dan wordt je account verwijderd en wordt je naar registreren.php gestuurd
     if (isset($_POST)) {
         if (isset($_POST['AccountVerwijderen'])) {

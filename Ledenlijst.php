@@ -3,6 +3,22 @@
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
     include './configs/functions.php';
+
+    if(isset($_POST)){
+      if (isset($_POST['Delete'])){
+        $sql = 'DELETE FROM `gebruikers` WHERE `ID` = ' .$_SESSION['ID'];
+
+            $qry = $conn -> query($sql);
+            if($qry){
+
+            }
+            else
+            {
+                echo "Iets ging er mis!<BR>";
+                echo "Error Beschrijving: ", $conn -> error;
+            }
+      }
+    }
     ?>
 
 <html lang="en">
@@ -33,6 +49,7 @@
         <!--<a href="add_new.php" class="btn btn-primary mb-3">voeg toe</a>
 
      <!--table holder-->
+<form action="ledenlijst.php" method="POST">
 <table class="table table-hover text-center">
   <thead class="table-primary">
     <tr>
@@ -59,7 +76,7 @@
             <td><?php echo $row['Telefoonnummer'] ?></td>
             <td>
                 <a href="edit.php?id=<?php echo $row['ID'] ?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
-                <a href="delete.php?id=<?php echo $row['ID'] ?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                <input type="submit" class="btn" id="btnSubmit" value="Delete" name="Delete">
             </td>
     </tr>
         <?php
@@ -68,6 +85,7 @@
 
   </tbody>
 </table>
+</form>
     </div>
 
     <!--bootstrap-->

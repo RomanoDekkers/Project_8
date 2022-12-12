@@ -6,10 +6,18 @@
     //hier is een functie die de tabel met knopjes maakt 
     admintable();
     if (!isset($_SESSION["ingelogd"])){ 
-        if ( $_SESSION["Rechten"] != ""){
-            header("location: index.php");
+       
+            echo "<script type='text/javascript'> window.location.href='index.php'</script>";
+        
+    }
+    else
+    {
+        if ( $_SESSION["Rechten"] != "")
+        {
+            echo "<script type='text/javascript'> window.location.href='index.php'</script>";
         }
     }
+   
     //als de delete knop ingedrukt word word hij verwijderd
     if(isset($_GET['aktie'])){
         if($_GET['aktie'] == "delete") {

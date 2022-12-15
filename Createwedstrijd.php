@@ -4,7 +4,7 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 $ID = $Speler1 = $Speler2 = $Stand = $Datum = $Winnaar ="";
-$ID_err = $Speler1_err = $Speler2_err = $Stand_err = $Winnaar_err ="";
+$ID_err = $Speler1_err = $Speler2_err = $Stand_err = $Datum_err = $Winnaar_err ="";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -12,8 +12,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $input_ID = trim($_POST["ID"]);
     if(empty($input_ID)){
         $ID_err = "voer hier het wedstrijdnummer in";
-    } elseif(!filter_var($input_ID, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $ID_err = "vul een geldig wedstrijdnummer in";
     } else{
         $ID = $input_ID;
     }
@@ -34,23 +32,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $Speler2 = $input_Speler2;
     }
 
-    $Stand = trim($_POST["Stand"]);
+    $input_Stand = trim($_POST["Stand"]);
     if(empty($input_Stand)){
         $Stand_err = "vul hier de stand in.";     
     }  else{
         $Stand = $input_Stand;
     }
 
-    $Datum = trim($_POST["Datum"]);
+    $input_Datum = trim($_POST["Datum"]);
     if(empty($input_Datum)){
-        $Datum_err = "vul hier de stand in.";     
+        $Datum_err = "vul hier datum";     
     }  else{
         $Datum = $input_Datum;
     }
 
-    $Winnaar = trim($_POST["Winnaar"]);
+    $input_Winnaar = trim($_POST["Winnaar"]);
     if(empty($input_Winnaar)){
-        $Winnaar_err = "vul hier de stand in.";     
+        $Winnaar_err = "vul hier de winnaar in";     
     }  else{
         $Winnaar = $input_Winnaar;
     }
@@ -62,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_ID, $param_Speler1, $param_Speler2, $param_Stand, $param_Datum, $param_Winnaar);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_ID, $param_Speler1, $param_Speler2, $param_Stand, $param_Datum, $param_Winnaar);
             
             // Set parameters
             $param_ID = $ID;
@@ -139,11 +137,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Winnaar</label>
-                            <input type="text" name="Winnaar" class="form-control <?php echo (!empty($Winnaar)) ? 'is-invalid' : ''; ?>" value="<?php echo $Winnaar; ?>">
+                            <input type="text" name="Winnaar" class="form-control <?php echo (!empty($Winnaar_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $Winnaar; ?>">
                             <span class="invalid-feedback"><?php echo $Winnaar_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <a href="Wedstrijd.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>        

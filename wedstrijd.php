@@ -1,3 +1,8 @@
+<?php
+    if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+    include './sjabloon/indeling.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +15,8 @@
             border-width:1px;
             border: 1px solid;    
         }
+
+        
 
         table, th, td {
   border: 1px solid;
@@ -24,10 +31,9 @@
 <body>
     <div class="container">
             <div class="row">
-                <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
                         <h2 class="pull-left">Wedstrijd gegevens</h2>
-                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Nieuwe stand toevoegen</a>
+                        <a href="Createwedstrijd.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Nieuwe stand toevoegen</a>
                     </div>
                     <?php
                     // Include config file
@@ -46,6 +52,11 @@
                                         echo "<th>Stand</th>";
                                         echo "<th>Datum</th>";
                                         echo "<th>Winnaar</th>";
+                                        echo "<th>Action</th>";
+                                        
+                                        
+                                        
+
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -57,6 +68,11 @@
                                         echo "<td>" . $row['Stand'] . "</td>";
                                         echo "<td>" . $row['Datum'] . "</td>";
                                         echo "<td>" . $row['Winnaar'] . "</td>";
+                                        echo "<td>";
+                                            echo '<a href="update.php?ID='. $row['ID'] .'" class="button"> title="Update Record"</a>';
+                                            echo '<a href="delete.php?ID='. $row['ID'] .'" class="button"> title="Delete Record"</a>';
+                                        echo "</td>";
+                                        
 
                                        
                                     echo "</tr>";
@@ -74,14 +90,8 @@
  
                     // Close connection
                     mysqli_close($link);
-                    ?>
-                </div>
+                    ?>  
             </div>        
     </div>
 </body>
 </html>
-<?php
-    if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-    include './sjabloon/indeling.php';
-
-?>

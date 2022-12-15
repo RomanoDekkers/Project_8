@@ -18,7 +18,7 @@
 
         
 
-        table, th, td {
+         th, td {
   border: 1px solid;
 }
     </style>
@@ -52,7 +52,7 @@
                                         echo "<th>Stand</th>";
                                         echo "<th>Datum</th>";
                                         echo "<th>Winnaar</th>";
-                                        echo "<th>Action</th>";
+                                        echo "<th>Aanpassen</th>";
                                         
                                         
                                         
@@ -69,8 +69,9 @@
                                         echo "<td>" . $row['Datum'] . "</td>";
                                         echo "<td>" . $row['Winnaar'] . "</td>";
                                         echo "<td>";
-                                            echo '<a href="update.php?ID='. $row['ID'] .'" class="button"> title="Update Record"</a>';
-                                            echo '<a href="delete.php?ID='. $row['ID'] .'" class="button"> title="Delete Record"</a>';
+                                            echo '<a href="update.php?ID='. $row['ID'] .'" class="button"> update</a>';
+                                            echo "<br>";
+                                            echo '<a href="deletewedstrijd.php?ID='. $row['ID'] .'" class="button"> delete</a>';
                                         echo "</td>";
                                         
 

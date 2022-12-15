@@ -25,8 +25,8 @@
              $qry = $conn -> query($sql);
              if($qry)
              {
-                // $_SESSION['Message'] = "Account is succesvol aangemaakt";
-                // $_SESSION['MessageType'] = "success";
+                $_SESSION['Message'] = "Account is succesvol aangemaakt";
+                $_SESSION['MessageType'] = "success";
                 echo "<script type='text/javascript'> window.location.href='login.php'</script>";
              }
              else

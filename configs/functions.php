@@ -1,7 +1,7 @@
 <?php 
+include './connectie/conn.php';
 function login()
-{
-    include './connectie/conn.php';
+{include './connectie/conn.php';
     $naam = $_POST['naam'];
     $Wachtwoord = $_POST['Wachtwoord'];
     $Wachtwoord = md5($Wachtwoord);    
@@ -37,8 +37,7 @@ function login()
         }
 }
 }
-function admintable(){
-        include './connectie/conn.php';
+function admintable(){include './connectie/conn.php';
         $admin = "";
         // alles word geselecteerd van gebruikers en vervolgens in een tabel gezet
         $query = "SELECT * FROM gebruikers ";
@@ -109,7 +108,25 @@ function admintable(){
         echo"</select></td>";
         //hier zie je een bewerk en delete knop die gebruik maakt van een hidden input om de waarde van de zojuist geselecteerde rij op te slaan
         echo" <td><input type='hidden' value='". $ID . "' name='ID'> <input type=submit class='btn btn-warning' name='update' value='Wijzig'></td></form>";
-        echo" <td><form action='" .$_SERVER['PHP_SELF']." ?aktie=delete' method=POST name='formulier'><input type='hidden' value='". $ID . "' name='ID'><input type=submit class='btn btn-danger' name='delete'value='Verwijder' ></td></form></tr>";
+        echo" <td>";
+        echo '  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-whatever="@getbootstrap">Verwijderen</button>';
+        echo ' <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModal3Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModal3Label">Weet je zeker dat je dit wilt verwijderen?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nee</button>
+              <form action="' .$_SERVER["PHP_SELF"].' ?aktie=delete" method=POST name="formulier">';
+        echo "<input type='hidden' value='". $ID . "' name='ID'>";
+        echo "<input type=submit class='btn btn-success' name='delete'value='Verwijder' >
+            </div>
+          </div>
+        </div>
+      </div>";
+        echo "</td></form></tr>";
                 }
         }
         echo" </tbody>";

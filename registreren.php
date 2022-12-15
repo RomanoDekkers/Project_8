@@ -1,7 +1,10 @@
 <?php
+    session_start();
+
     // include layout en databse connectie
     include './sjabloon/indeling.php';
     include './connectie/conn.php';
+    // $_SESSION['MessageType'] = "";
 
     // als je op registreren drukt wordt deze functie uitgevoer. Het zet alle ingevulde data in de database zodat de gebruiker kan inloggen
     if(isset($_POST['Registreer'])){
@@ -22,12 +25,14 @@
              $qry = $conn -> query($sql);
              if($qry)
              {
+                // $_SESSION['Message'] = "Account is succesvol aangemaakt";
+                // $_SESSION['MessageType'] = "success";
                 echo "<script type='text/javascript'> window.location.href='login.php'</script>";
              }
              else
              {
-                echo "Er ging iets fout!<BR>";
-                echo "Error Description: ", $conn -> error;
+                // $_SESSION['Message'] = "Er ging iets fout!";
+                // $_SESSION['MessageType'] = "danger";
              }
           }
        }
@@ -89,5 +94,18 @@
                 <button type="submit" name="Registreer" class="btn btn-primary">Registreer</button>
         </form>
     </div>
+<?php
+//if(!empty($_SESSION['Message']) && !empty($_SESSION['MessageType'] == 'danger') || !empty($_SESSION['MessageType'] == 'warning')){
+//    echo "
+//        <div class='row justify-content-center text-center'>
+//            <div class='alert alert-".$_SESSION['MessageType']." col-5' role='alert'>".
+//                $_SESSION['Message']
+//            ."</div>
+//        </div>
+//        ";
+//    unset($_SESSION['Message']);
+//    unset($_SESSION['MessageType']);
+//}
+?>
 </body>
 </html>

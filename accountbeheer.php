@@ -18,6 +18,8 @@
             $qry = $conn -> query($sql);
             if($qry){
                 session_destroy();
+                // $_SESSION['Message'] = "Account is succesvol verwijderd!";
+                // $_SESSION['MessageType'] = "warning";
                 echo "<script type='text/javascript'> window.location.href='registreren.php'</script>";
             }
             else

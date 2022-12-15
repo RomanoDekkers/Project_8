@@ -47,6 +47,19 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
             <p>Geen account? <a href="registreren.php" class="text-decoration-none">registreer hier</a></p>
     </form>
 </div>
+<?php
+// if(!empty($_SESSION['Message'])){
+//    echo "
+//       <div class='row justify-content-center text-center'>
+//            <div class='alert alert-".$_SESSION['MessageType']." col-5' role='alert'>".
+//                $_SESSION['Message']
+//            ."</div>
+//        </div>
+//        ";
+//    unset($_SESSION['Message']);
+//    unset($_SESSION['MessageType']);
+//}
+?>
 </body>
 </html>
 <script>

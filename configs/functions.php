@@ -36,6 +36,12 @@ function login()
                 echo" ingelogd";
         }
 }
+else{
+  echo "<div class='alert alert-danger' role='alert'>
+  Gegevens zijn incorrect!
+</div>
+";
+}
 }
 function admintable(){include './connectie/conn.php';
         $admin = "";

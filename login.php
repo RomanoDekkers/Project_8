@@ -12,14 +12,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
             login();
                                      
              }
-             else
-             {
-                //als er verkeerde gegevens worden ingevult komt er een melding
-                 echo "<div class='alert alert-danger' role='alert'>
-                 Gegevens zijn incorrect!
-               </div>
-               ";
-             }
          }
      }
   ?>
